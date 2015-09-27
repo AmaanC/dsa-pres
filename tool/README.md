@@ -8,4 +8,4 @@ I didn't want to manually write out the steps for all the examples I'd like to p
 
 Its working is fairly simple. It runs the simple infix to postfix algorithm with an additional `saveStep` function in the middle, which draws the current states to a canvas.
 
-##[Demo](http://g.whatthedude.com/infix-to-postfix-visualizer/)
+##[Demo](http://g.whatthedude.com/dsa-pres/tool)
