@@ -35,6 +35,16 @@ int higherPrecedence(char op1, char op2) {
     return val1 > val2;
 }
 
+int testFns() {
+    printf("%d\n", operand('a'));
+    printf("%d\n", operand('8'));
+    printf("%d\n", !operand('+'));
+
+    printf("%d\n", higherPrecedence('*', '-'));
+    printf("%d\n", !higherPrecedence('-', '-'));
+}
+
 int main() {
+    testFns();
     return 0;
 }
