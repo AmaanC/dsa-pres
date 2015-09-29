@@ -1,0 +1,12 @@
+/* Modified Rules:
+    1) If it is an operand, write it to the output string
+    2) If it is an operator:
+        a) if (c == '(')
+            pushToStack
+        b) else if (c == ')')
+            pop and add to output till you find the '('
+        c) if (stack.length == 0 || c == '(' || higherPrecedence(c, seeTop(stack)))
+            pushToStack
+        d) else
+            pop all from stack and add to output
+*/
