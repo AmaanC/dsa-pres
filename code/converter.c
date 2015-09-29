@@ -169,6 +169,9 @@ int testFns() {
     printTest(
         strcmp(convertToPostfix("a+(b*c)", 8), "abc*+") == 0
     );
+    printTest(
+        strcmp(convertToPostfix("(a*b)+(b*c)", 11), "ab*bc*+") == 0
+    );
 }
 
 int main() {
