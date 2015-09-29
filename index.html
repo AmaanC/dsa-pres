@@ -47,8 +47,32 @@
 					</p>
 				</section>
 
+                <section>
+                    <h2>When I was asked to make this</h2>
+                    <img src='img/before.gif'>
+                </section>
+                <section>
+                    <h2>But then...</h2>
+                    <img src='img/yay.gif'>
+                    <p>
+                        ...when I realized I could add GIFs to the slides!
+                    </p>
+                </section>
+                <section>
+                    <h2>Anyway</h2>
+                </section>
+                <section>
+                    <h2>You have a choice</h2>
+                    <img src='img/neo.jpg'>
+                    <p>
+                        Write the code live, or go through slides?
+                    </p>
+                </section>
+                <section>
+                    <h2>Slides it is.</h2>
+                </section>
 				<section>
-					<h2>What is it?</h2>
+					<h2>What is postfix?</h2>
 					<p>
 						Definition: Postfix notation is a mathematical notation in which every operator follows all of its operands.
 					</p>
@@ -93,32 +117,39 @@
 
 				<section>
 					<h2>Rules for the algortihm</h2>
-					<ol>
-						<li>
-							If the character is an operand, add it to the output string.
-						</li>
-					</ol>
+						1. If the character is an operand, add it to the output string.
 				</section>
 
 				<section>
-					<h2>For operators</h2>
-					<ol start='2'>
-						<li>
-							If the character is '(', push it to the stack.
-						</li>
-						<li>
-							If it is ')', keep popping from the stack until you find the corresponding '('.
-						</li>
-						<li data-markdown>
-							If the *stack is empty*, or if there's *a '(' on the top of the stack* or if the *current operator has higher precedence than the operator at the top of the stack*: push the operator to the stack.
-						</li>
-						<li>
-							If the current operator has lower precedence than the top of the stack, pop all elements of the stack and add them to the output string.
-						</li>
-					</ol>
+                    <section>
+					   <h2>For operators</h2>
+                   </section>
+					<section>
+                        2. if c == '(': push it to the stack.
+                    </section>
+					<section>
+                        3. else if c == ')': pop and add to output till you find the '('
+                    </section>
+
+                    <section>
+						4. else if (
+                            <br>
+                            stackIsEmpty || higherPrecedence(c, topOfStack)
+                            <br>
+                        ):
+                            <br>
+                            pushToStack(c)
+                    </section>
+
+                    <section>
+						5. else: pop all from stack and add to output
+                    </section>
+
+
 				</section>
 
 				<section>
+                    <img src='img/confused.gif'>
 					<p>
 						Looks complicated. Really, though, it isn't.
 					</p>
@@ -345,19 +376,19 @@ function linkify( selector ) {
 				<section>
 					<h2>Marvelous List</h2>
 					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
+
+
+
+
 					</ul>
 				</section>
 
 				<section>
 					<h2>Fantastic Ordered List</h2>
 					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
+
+
+
 					</ol>
 				</section>
 
@@ -458,11 +489,11 @@ Reveal.addEventListener( 'customevent', function() {
 				<section>
 					<h2>Much more</h2>
 					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+
+
+
+
+
 					</ul>
 				</section>
 
