@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int operand(char c) {
     // Returns 0 if c is an operator
@@ -35,12 +36,21 @@ int higherPrecedence(char op1, char op2) {
     return val1 > val2;
 }
 
+char* convertToPostfix(char* exp, int len) {
+    char *result;
+    result = malloc(len);
+    int resultI; // Iterates over result
+
+    result = "ab+";
+    return result;
+}
+
 void printTest(int result) {
     if (result == 1) {
         printf("Test passed.\n");
     }
     else {
-        printf("Test failed!\n");
+        printf("----- Test failed! ------\n");
     }
 }
 
@@ -50,6 +60,10 @@ int testFns() {
     printTest(!operand('+'));
     printTest(higherPrecedence('*', '-'));
     printTest(!higherPrecedence('-', '-'));
+
+    printTest(
+        strcmp(convertToPostfix("a+b", 4), "ab+") == 0
+    );
 }
 
 int main() {
