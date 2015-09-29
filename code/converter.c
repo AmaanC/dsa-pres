@@ -35,13 +35,21 @@ int higherPrecedence(char op1, char op2) {
     return val1 > val2;
 }
 
-int testFns() {
-    printf("%d\n", operand('a'));
-    printf("%d\n", operand('8'));
-    printf("%d\n", !operand('+'));
+void printTest(int result) {
+    if (result == 1) {
+        printf("Test passed.\n");
+    }
+    else {
+        printf("Test failed!\n");
+    }
+}
 
-    printf("%d\n", higherPrecedence('*', '-'));
-    printf("%d\n", !higherPrecedence('-', '-'));
+int testFns() {
+    printTest(operand('a'));
+    printTest(operand('8'));
+    printTest(!operand('+'));
+    printTest(higherPrecedence('*', '-'));
+    printTest(!higherPrecedence('-', '-'));
 }
 
 int main() {
