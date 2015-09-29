@@ -41,8 +41,20 @@ char* convertToPostfix(char* exp, int len) {
     char *result;
     result = malloc(len);
     int resultI; // Iterates over result
+    int i = 0; // Iterates over input
+    char c;
 
-    result = "ab+";
+    /* Simple Rules:
+        1) If it is an operand, write it to the output string
+        2) If it is an operator:
+            a) if (stack.length === 0 || seeTop(stack) === '(' || higherPrecedence(c, seeTop(stack)))
+                pushToStack
+            b) else, pop all from stack and add to output
+    */
+
+    while (exp[i] != '\0' && i < len) {
+
+    }
     return result;
 }
 
@@ -66,7 +78,7 @@ int testFns() {
         strcmp(convertToPostfix("a+b", 4), "ab+") == 0
     );
     printTest(
-        strcmp(convertToPostfix("a+b", 4), "ab+") == 0
+        strcmp(convertToPostfix("a+b*c", 4), "abc*+") == 0
     );
 }
 
