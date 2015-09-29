@@ -85,11 +85,12 @@ char* convertToPostfix(char* exp, int len) {
     int resultI = 0; // Iterates over result
     int i = 0; // Iterates over input
     char c;
+    char temp;
 
     /* Simple Rules:
         1) If it is an operand, write it to the output string
         2) If it is an operator:
-            a) if (stack.length === 0 || seeTop(stack) === '(' || higherPrecedence(c, seeTop(stack)))
+            a) if (stack.length === 0 || higherPrecedence(c, seeTop(stack)))
                 pushToStack
             b) else, pop all from stack and add to output
     */
@@ -101,10 +102,26 @@ char* convertToPostfix(char* exp, int len) {
             resultI++;
         }
         else {
-
+            if (s.top < 0 || higherPrecedence(c, seeTop(&s))) {
+                push(&s, c);
+            }
+            else {
+                while (s.top >= 0) {
+                    temp = pop(&s);
+                    result[resultI] = temp;
+                    resultI++;
+                }
+            }
         }
         i++;
     }
+
+    while (s.top >= 0) {
+        temp = pop(&s);
+        result[resultI] = temp;
+        resultI++;
+    }
+    printf("%s\n", result);
     return result;
 }
 
@@ -128,11 +145,12 @@ int testFns() {
         strcmp(convertToPostfix("a+b", 4), "ab+") == 0
     );
     printTest(
-        strcmp(convertToPostfix("a+b*c", 4), "abc*+") == 0
+        strcmp(convertToPostfix("a+b*c", 6), "abc*+") == 0
     );
 }
 
 int main() {
+    initialize(&s);
     testFns();
     return 0;
 }
