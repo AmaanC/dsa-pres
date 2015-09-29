@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 int operand(char c) {
@@ -61,6 +62,9 @@ int testFns() {
     printTest(higherPrecedence('*', '-'));
     printTest(!higherPrecedence('-', '-'));
 
+    printTest(
+        strcmp(convertToPostfix("a+b", 4), "ab+") == 0
+    );
     printTest(
         strcmp(convertToPostfix("a+b", 4), "ab+") == 0
     );
