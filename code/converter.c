@@ -40,7 +40,7 @@ int higherPrecedence(char op1, char op2) {
 char* convertToPostfix(char* exp, int len) {
     char *result;
     result = malloc(len);
-    int resultI; // Iterates over result
+    int resultI = 0; // Iterates over result
     int i = 0; // Iterates over input
     char c;
 
@@ -53,7 +53,12 @@ char* convertToPostfix(char* exp, int len) {
     */
 
     while (exp[i] != '\0' && i < len) {
-
+        c = exp[i];
+        if (operand(c)) {
+            result[resultI] = c;
+            resultI++;
+        }
+        i++;
     }
     return result;
 }
