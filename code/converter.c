@@ -87,12 +87,17 @@ char* convertToPostfix(char* exp, int len) {
     char c;
     char temp;
 
-    /* Simple Rules:
+    /* Modified Rules:
         1) If it is an operand, write it to the output string
         2) If it is an operator:
-            a) if (stack.length === 0 || higherPrecedence(c, seeTop(stack)))
+            a) if (c == '(')
                 pushToStack
-            b) else, pop all from stack and add to output
+            b) else if (c == ')')
+                pop and add to output till you find the '('
+            c) if (stack.length == 0 || c == '(' || higherPrecedence(c, seeTop(stack)))
+                pushToStack
+            d) else
+                pop all from stack and add to output
     */
 
     while (exp[i] != '\0' && i < len) {
@@ -102,7 +107,18 @@ char* convertToPostfix(char* exp, int len) {
             resultI++;
         }
         else {
-            if (s.top < 0 || higherPrecedence(c, seeTop(&s))) {
+            if (c == '(') {
+                push(&s, c);
+            }
+            else if (c == ')') {
+                temp = pop(&s);
+                while (temp != '(' && s.top >= 0) {
+                    result[resultI] = temp;
+                    resultI++;
+                    temp = pop(&s);
+                }
+            }
+            else if (s.top < 0 || higherPrecedence(c, seeTop(&s))) {
                 push(&s, c);
             }
             else {
@@ -146,6 +162,12 @@ int testFns() {
     );
     printTest(
         strcmp(convertToPostfix("a+b*c", 6), "abc*+") == 0
+    );
+    printTest(
+        strcmp(convertToPostfix("(a+b)*c", 8), "ab+c*") == 0
+    );
+    printTest(
+        strcmp(convertToPostfix("a+(b*c)", 8), "abc*+") == 0
     );
 }
 
