@@ -20,6 +20,7 @@ void push(struct stack *s, int value) {
         printf("Cannot push, stack is full.\n");
         return;
     }
+    // printf("Pushing: %c\n", value);
     s->arr[top] = value;
 }
 
@@ -127,6 +128,7 @@ char* convertToPostfix(char* exp, int len) {
                     result[resultI] = temp;
                     resultI++;
                 }
+                push(&s, c);
             }
         }
         i++;
@@ -175,6 +177,10 @@ void testFns() {
     );
     printTest(
         strcmp(convertToPostfix("(a*b)", 11), "ab*") == 0 // Making sure the wrong length works too
+    );
+
+    printTest(
+        strcmp(convertToPostfix("a+b+d", 10), "ab+d+") == 0
     );
 }
 
