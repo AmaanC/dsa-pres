@@ -26,7 +26,7 @@ void push(struct stack *s, int value) {
 char seeTop(struct stack *s) {
     int top = s->top;
     if (top < 0) {
-        return;
+        return '\0';
     }
     char retVal = s->arr[top];
     return retVal;
@@ -36,7 +36,7 @@ char pop(struct stack *s) {
     int top = s->top;
     if (top < 0) {
         printf("Underflow.\n");
-        return;
+        return '\0';
     }
     char retVal = s->arr[top];
     //printf("%d", s->arr[0]);
@@ -137,6 +137,7 @@ char* convertToPostfix(char* exp, int len) {
         result[resultI] = temp;
         resultI++;
     }
+    result[resultI] = '\0';
     printf("%s\n", result);
     return result;
 }
@@ -150,7 +151,7 @@ void printTest(int result) {
     }
 }
 
-int testFns() {
+void testFns() {
     printTest(operand('a'));
     printTest(operand('8'));
     printTest(!operand('+'));
@@ -171,6 +172,9 @@ int testFns() {
     );
     printTest(
         strcmp(convertToPostfix("(a*b)+(b*c)", 11), "ab*bc*+") == 0
+    );
+    printTest(
+        strcmp(convertToPostfix("(a*b)", 11), "ab*") == 0 // Making sure the wrong length works too
     );
 }
 
