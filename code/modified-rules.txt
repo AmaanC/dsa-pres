@@ -5,7 +5,7 @@
             pushToStack
         b) else if (c == ')')
             pop and add to output till you find the '('
-        c) else if (stack.length == 0 || higherPrecedence(c, seeTop(stack)))
+        c) else if (stack.length == 0 || higherPrecedence(c, seeTop(stack)) || seeTop(stack) == '(')
             pushToStack
         d) else
             pop all from stack and add to output
