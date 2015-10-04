@@ -360,7 +360,7 @@ else {
 else {
     // It is an operator
     // Code for previous rules goes here
-    else if (s.top < 0 || higherPrecedence(c, seeTop(&s))) {
+    else if (s.top < 0 || higherPrecedence(c, seeTop(&s)) || seeTop(&s) == '(') {
         push(&s, c);
     }
 }                 </code></pre>
