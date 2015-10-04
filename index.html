@@ -134,7 +134,7 @@
                     <section>
 						4. else if (
                             <br>
-                            stackIsEmpty || higherPrecedence(c, topOfStack)
+                            stackIsEmpty || topOfStack == '(' || higherPrecedence(c, topOfStack)
                             <br>
                         ):
                             <br>
@@ -399,13 +399,6 @@ while (s.top >= 0) {
                 </section>
 
 				<section>
-                    <p>
-                        And we're done!
-                    </p>
-                    <img src='img/win2.gif'>
-                </section>
-
-				<section>
                     <h2>Links:</h2>
                     <a href='https://en.wikipedia.org/wiki/Shunting-yard_algorithm'>Shunting yard algorithm</a><br>
                     <a href='http://whatthedude.com/dsa-pres/tool'>Infix to Postfix visualizer</a><br><br>
@@ -413,6 +406,13 @@ while (s.top >= 0) {
                     <a href='https://github.com/AmaanC/dsa-pres'>Repository: https://github.com/AmaanC/dsa-pres</a><br>
                     <a href='http://whatthedude.com/dsa-pres/'>This presentation: http://whatthedude.com/dsa-pres/</a><br>
 				</section>
+
+                <section>
+                    <p>
+                        And we're done!
+                    </p>
+                    <img src='img/win2.gif'>
+                </section>
 
 			</div>
 
