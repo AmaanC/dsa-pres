@@ -119,7 +119,7 @@ char* convertToPostfix(char* exp, int len) {
                     temp = pop(&s);
                 }
             }
-            else if (s.top < 0 || higherPrecedence(c, seeTop(&s))) {
+            else if (s.top < 0 || c == '(' || higherPrecedence(c, seeTop(&s))) {
                 push(&s, c);
             }
             else {
